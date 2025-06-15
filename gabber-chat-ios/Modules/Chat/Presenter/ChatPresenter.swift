@@ -17,7 +17,7 @@ class ChatPresenter: ObservableObject {
     }
 
     func sendMessage(_ message: String) {
-        let chatMessage = ChatMessage(id: UUID(), text: message, timestamp: Date(), sender: "Me")
+        let chatMessage = ChatMessage(id: UUID(), text: message, isSentByCurrentUser: true, timestamp: Date(), sender: "Me")
         interactor?.saveMessage(chatMessage)
     }
 }

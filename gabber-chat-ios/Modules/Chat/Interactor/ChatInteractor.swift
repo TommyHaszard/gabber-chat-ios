@@ -10,11 +10,11 @@ class ChatInteractor: ChatInteractorProtocol {
 
     func fetchMessages() {
         // Call Rust backend via UniFFI
-        let messages: [ChatMessage] = RustBackend.shared.getMessages()
-        presenter?.view?.displayMessages(messages)
+//        let messages: [ChatMessage] = RustBackend.shared.getMessages()
+//        presenter?.view?.displayMessages(messages)
     }
 
     func saveMessage(_ message: ChatMessage) {
-        RustBackend.shared.saveMessage(message)
+//        
     }
 }

@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct ChatMessage {
+struct ChatMessage: Identifiable {
     let id: UUID
     let text: String
+    let isSentByCurrentUser: Bool
     let timestamp: Date
     let sender: String
 }
