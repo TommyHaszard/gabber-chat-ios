@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatMessage: Identifiable {
+struct ChatMessage: Codable, Identifiable {
     let id: UUID
     let text: String
     let isSentByCurrentUser: Bool

@@ -11,8 +11,9 @@ import SwiftUI
 struct gabber_chat_iosApp: App {
     var body: some Scene {
         WindowGroup {
-            // ContentView()
-            ChatRouter.createChatModule()
+            NavigationStack {
+                RootView()
+            }
         }
     }
 }

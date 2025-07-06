@@ -8,7 +8,6 @@ struct ChatView: View {
         ChatMessage(id: UUID(), text: "Its Tommy", isSentByCurrentUser: true, timestamp: Date(), sender: "Tommy"),
         ChatMessage(id: UUID(), text: "Sorry wrong number.", isSentByCurrentUser: false, timestamp: Date(), sender: "Alex"),
         ChatMessage(id: UUID(), text: "oh okay :(", isSentByCurrentUser: true, timestamp: Date(), sender: "Alex"),
-        
     ]
     
     
