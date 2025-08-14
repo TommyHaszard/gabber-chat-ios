@@ -1,0 +1,4 @@
+module ChatLibFFI {
+    header "ChatLibFFI.h"
+    export *
+}

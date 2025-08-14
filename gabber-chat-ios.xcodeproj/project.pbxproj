@@ -7,27 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6522121E2E1A84FF009C8E19 /* libgabber_chat_lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6522121D2E1A84FF009C8E19 /* libgabber_chat_lib.a */; };
-		65AD74A92E1A653900DEFDD6 /* gabber_chat_lib.udl in Sources */ = {isa = PBXBuildFile; fileRef = 65AD74A72E1A60EC00DEFDD6 /* gabber_chat_lib.udl */; };
+		6591A1712E36627D00D3EA78 /* ChatLib.udl in Resources */ = {isa = PBXBuildFile; fileRef = 6591A1702E36627D00D3EA78 /* ChatLib.udl */; };
+		65FB16E82E3FAF7D0072CB27 /* libChatLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FB16E72E3FAF7D0072CB27 /* libChatLib.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildRule section */
-		65AD74582E189F0B00DEFDD6 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.udl";
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 1;
-			outputFiles = (
-				"$(INPUT_FILE_DIR)/Bindings/$(INPUT_FILE_BASE).swift",
-				"$(INPUT_FILE_DIR)/Bindings/$(INPUT_FILE_BASE)FFI.h",
-			);
-			runOncePerArchitecture = 0;
-			script = "cd ../gabber-chat-rust-lib\n\n#export CARGO_BUILD_TARGET=aarch64-apple-ios-sim\n\n#export RUSTFLAGS=\"-C link-arg=-mios-simulator-version-min=14.0\" \n$HOME/.cargo/bin/cargo run --bin uniffi generate --library target/debug/libgabber_chat_lib.dylib --language swift --out-dir $INPUT_FILE_DIR/Bindings\n\n#$HOME/.cargo/bin/cargo run --bin uniffi generate \"$INPUT_FILE_PATH\" --language swift --out-dir $INPUT_FILE_DIR/Bindings\n\n";
-		};
-/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		653C4AE72D624764007FD0A2 /* PBXContainerItemProxy */ = {
@@ -47,13 +29,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		652211D72E1A70C7009C8E19 /* gabber-chat-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "gabber-chat-ios.app"; path = "/Users/tommy/Documents/gabber-chat/gabber-chat-ios/build/Debug-iphoneos/gabber-chat-ios.app"; sourceTree = "<absolute>"; };
-		652211D82E1A70C7009C8E19 /* gabber-chat-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "gabber-chat-iosTests.xctest"; path = "/Users/tommy/Documents/gabber-chat/gabber-chat-ios/build/Debug-iphoneos/gabber-chat-ios.app/PlugIns/gabber-chat-iosTests.xctest"; sourceTree = "<absolute>"; };
-		652211D92E1A70C7009C8E19 /* gabber-chat-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "gabber-chat-iosUITests.xctest"; path = "/Users/tommy/Documents/gabber-chat/gabber-chat-ios/build/Debug-iphoneos/gabber-chat-iosUITests-Runner.app/PlugIns/gabber-chat-iosUITests.xctest"; sourceTree = "<absolute>"; };
-		6522121D2E1A84FF009C8E19 /* libgabber_chat_lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgabber_chat_lib.a; path = "../gabber-chat-rust-lib/target/aarch64-apple-ios-sim/debug/libgabber_chat_lib.a"; sourceTree = "<group>"; };
+		6522121F2E1A8E6B009C8E19 /* gabber-chat-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gabber-chat-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		652212202E1A8E6B009C8E19 /* gabber-chat-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gabber-chat-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		652212212E1A8E6B009C8E19 /* gabber-chat-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gabber-chat-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6591A1702E36627D00D3EA78 /* ChatLib.udl */ = {isa = PBXFileReference; lastKnownFileType = text; name = ChatLib.udl; path = "../gabber-chat-rust-lib/src/ChatLib.udl"; sourceTree = SOURCE_ROOT; };
 		65AD74A22E1A1BC500DEFDD6 /* Dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dummy.m; sourceTree = "<group>"; };
 		65AD74A42E1A1CB600DEFDD6 /* IOSApp_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSApp_Bridging_Header.h; sourceTree = "<group>"; };
-		65AD74A72E1A60EC00DEFDD6 /* gabber_chat_lib.udl */ = {isa = PBXFileReference; lastKnownFileType = text; name = gabber_chat_lib.udl; path = "../gabber-chat-rust-lib/src/gabber_chat_lib.udl"; sourceTree = SOURCE_ROOT; };
+		65FB16E72E3FAF7D0072CB27 /* libChatLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChatLib.a; path = "../gabber-chat-rust-lib/target/debug/libChatLib.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -92,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6522121E2E1A84FF009C8E19 /* libgabber_chat_lib.a in Frameworks */,
+				65FB16E82E3FAF7D0072CB27 /* libChatLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,25 +95,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6522121C2E1A84FF009C8E19 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6522121D2E1A84FF009C8E19 /* libgabber_chat_lib.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		653C4ACD2D624763007FD0A2 = {
 			isa = PBXGroup;
 			children = (
-				65AD74A72E1A60EC00DEFDD6 /* gabber_chat_lib.udl */,
+				6591A1702E36627D00D3EA78 /* ChatLib.udl */,
 				65AD74A22E1A1BC500DEFDD6 /* Dummy.m */,
 				653C4AD82D624763007FD0A2 /* gabber-chat-ios */,
 				653C4AE92D624764007FD0A2 /* gabber-chat-iosTests */,
 				653C4AF32D624764007FD0A2 /* gabber-chat-iosUITests */,
 				65AD74A42E1A1CB600DEFDD6 /* IOSApp_Bridging_Header.h */,
-				6522121C2E1A84FF009C8E19 /* Frameworks */,
+				6522121F2E1A8E6B009C8E19 /* gabber-chat-ios.app */,
+				652212202E1A8E6B009C8E19 /* gabber-chat-iosTests.xctest */,
+				652212212E1A8E6B009C8E19 /* gabber-chat-iosUITests.xctest */,
+				65FB16E62E3FAF7D0072CB27 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		65FB16E62E3FAF7D0072CB27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65FB16E72E3FAF7D0072CB27 /* libChatLib.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,13 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 653C4AFA2D624764007FD0A2 /* Build configuration list for PBXNativeTarget "gabber-chat-ios" */;
 			buildPhases = (
-				65AD745C2E19431000DEFDD6 /* ShellScript */,
+				65AD745C2E19431000DEFDD6 /* Run Script */,
 				653C4AD22D624763007FD0A2 /* Sources */,
 				653C4AD32D624763007FD0A2 /* Frameworks */,
 				653C4AD42D624763007FD0A2 /* Resources */,
 			);
 			buildRules = (
-				65AD74582E189F0B00DEFDD6 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -158,7 +142,7 @@
 			packageProductDependencies = (
 			);
 			productName = "gabber-chat-ios";
-			productReference = 652211D72E1A70C7009C8E19 /* gabber-chat-ios.app */;
+			productReference = 6522121F2E1A8E6B009C8E19 /* gabber-chat-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
 		653C4AE52D624764007FD0A2 /* gabber-chat-iosTests */ = {
@@ -181,7 +165,7 @@
 			packageProductDependencies = (
 			);
 			productName = "gabber-chat-iosTests";
-			productReference = 652211D82E1A70C7009C8E19 /* gabber-chat-iosTests.xctest */;
+			productReference = 652212202E1A8E6B009C8E19 /* gabber-chat-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		653C4AEF2D624764007FD0A2 /* gabber-chat-iosUITests */ = {
@@ -204,7 +188,7 @@
 			packageProductDependencies = (
 			);
 			productName = "gabber-chat-iosUITests";
-			productReference = 652211D92E1A70C7009C8E19 /* gabber-chat-iosUITests.xctest */;
+			productReference = 652212212E1A8E6B009C8E19 /* gabber-chat-iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -256,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6591A1712E36627D00D3EA78 /* ChatLib.udl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +261,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		65AD745C2E19431000DEFDD6 /* ShellScript */ = {
+		65AD745C2E19431000DEFDD6 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -285,13 +270,16 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(TARGET_TEMP_DIR)/ChatLib.swift",
+				"$(TARGET_TEMP_DIR)/ChatLibFFI.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash ../gabber-chat-rust-lib/xc-universal-binary.sh ../gabber-chat-rust-lib/Cargo.toml gabber-chat-lib ../gabber-chat-rust-lib $CONFIGURATION\n";
+			shellScript = "cd ../gabber-chat-rust-lib\n\nexport PATH=\"$HOME/.cargo/bin:$PATH\"\nexport SDKROOT=$(xcrun --sdk macosx --show-sdk-path)\n\n$HOME/.cargo/bin/cargo build --features=uniffi/cli\n\nbash xc-universal-binary.sh Cargo.toml gabber-chat-lib src $CONFIGURATION\n\n$HOME/.cargo/bin/cargo run --bin uniffi generate --library target/debug/libChatLib.dylib --language swift --out-dir ../gabber-chat-rust-lib/bindings\n\ncp -r ../gabber-chat-rust-lib/bindings/ ../gabber-chat-ios/gabber-chat-ios/Bindings/\n\n#ln bindings/ChatLib.swift ../gabber-chat-ios/gabber-chat-ios/ChatLib.swift\n\n#cat $TARGET_TEMP_DIR/ChatLib.swift\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -300,7 +288,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65AD74A92E1A653900DEFDD6 /* gabber_chat_lib.udl in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +450,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"gabber-chat-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 6P67L9NAQF;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "gabber-chat-ios/Info.plist";
@@ -482,10 +470,11 @@
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
 				NEW_SETTING1 = "";
+				NEW_SETTING2 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thazm.gabber-chat-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INCLUDE_PATHS = "../gabber-chat-rust-lib/bindings";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = IOSApp_Bridging_Header.h;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -503,6 +492,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"gabber-chat-ios/Preview Content\"";
 				DEVELOPMENT_TEAM = 6P67L9NAQF;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "gabber-chat-ios/Info.plist";
@@ -519,10 +509,11 @@
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
 				NEW_SETTING1 = "";
+				NEW_SETTING2 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thazm.gabber-chat-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INCLUDE_PATHS = "../gabber-chat-rust-lib/bindings";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = IOSApp_Bridging_Header.h;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;

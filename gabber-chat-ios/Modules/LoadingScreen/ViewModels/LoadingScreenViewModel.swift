@@ -8,24 +8,33 @@
 import SwiftUI
 import Combine
 
-final class LoadingScreenViewModel: ObservableObject {
+class LoadingScreenViewModel: ObservableObject {
     @Published var state: LoadingState = .loading
 
-    func loadData() {
-        let chat1 = ChatMessage(id: UUID(), text: "Hello", isSentByCurrentUser: true, timestamp: Date(), sender: "Tommy");
-        let chat2 = ChatMessage(id: UUID(), text: "Hey, who this?", isSentByCurrentUser: false, timestamp: Date(), sender: "Alex");
-        let chat3 = ChatMessage(id: UUID(), text: "Hey its Tommy", isSentByCurrentUser: true, timestamp: Date(), sender: "Tommy");
+    func loadData(with: AppDependencies) {
+        let user1 = UUID().uuidString.data(using: String.Encoding.utf8)!;
+        let user2 = UUID().uuidString.data(using: String.Encoding.utf8)!;
+        let chat1 = Message(messageId: UUID().uuidString.data(using: String.Encoding.utf8)!, userId: user1 ,content: "Hello", createdAt: nil, isFromUser: true);
         
+        let chat2 = Message(messageId: UUID().uuidString.data(using: String.Encoding.utf8)!, userId: user2 ,content: "Hey, who this?", createdAt: nil, isFromUser: false);
+        
+        let chat3 = Message(messageId: UUID().uuidString.data(using: String.Encoding.utf8)!, userId: user1 ,content:
+            "Hey its Tommy", createdAt: nil, isFromUser: true);
+        
+        //let user = dependencies.rustLib.loadCurrentUser()
         
         // Simulate API/BLE delay
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        let workItem = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            
             let loadedUsers = [
-                User(id: UUID(), name: "Alice", lastMessage: chat1),
-                User(id: UUID(), name: "Bob", lastMessage:chat2),
-                User(id: UUID(), name: "Charlie", lastMessage: chat3)
+                User(userId: user1, username: "Alice", userType: UserType.friend),
+                User(userId: user2, username: "Tommy", userType: UserType.current),
             ]
             self.state = .success(loadedUsers)
         }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: workItem)
     }
 }
 

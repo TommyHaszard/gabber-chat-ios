@@ -8,6 +8,6 @@
 #ifndef IOSApp_Bridging_Header_h
 #define IOSApp_Bridging_Header_h
 
-#import "gabber_chat_libFFI.h"
+#import "ChatLibFFI.h"
 
 #endif /* IOSApp_Bridging_Header_h */

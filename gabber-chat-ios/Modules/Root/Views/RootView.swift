@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct RootView: View {
+    @EnvironmentObject var dependencies: AppDependencies
 
     var body: some View {
+        let result = dependencies.rustLib.initDatabase()
         LoadingView()
     }
 }

@@ -1,21 +1,19 @@
 import SwiftUI
 
 struct LoadingView: View {
+    @EnvironmentObject var dependencies: AppDependencies
     @StateObject private var viewModel = LoadingScreenViewModel()
 
     var body: some View {
-        // Switch on the view model's state
         switch viewModel.state {
         case .loading:
             ProgressView("Loading users...")
                 .onAppear {
-                    // Trigger the data load when the view appears
-                    viewModel.loadData()
+                    viewModel.loadData(with: dependencies)
                 }
             
         case .success(let users):
-            // When data is loaded, show the UserListView
-            UserListView(users: users)
+            UserContentView()
             
         case .failure(let error):
             // Always handle potential errors
